@@ -3,3 +3,8 @@ uvicorn
 sqlalchemy
 aiosqlite
 python-dotenv
+websockets
+python-multipart
+# for sigma.js after arp-scan
+jsonyx
+
