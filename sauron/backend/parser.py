@@ -21,10 +21,10 @@ def parse_iptables_log(line: str):
     return {
         "timestamp": dt,
         "prefix": prefix,
-        "src_ip": fields.get("SRC"),
-        "dst_ip": fields.get("DST"),
-        "proto": fields.get("PROTO"),
-        "spt": fields.get("SPT"),
-        "dpt": fields.get("DPT"),
-        "len": fields.get("LEN")
-    }
+        "source_ip": fields.get("SRC"),
+        "dest_ip": fields.get("DST"),
+        "protocol": fields.get("PROTO"),
+        "source_port": fields.get("SPT"),
+        "dest_port": fields.get("DPT"),
+        "length": fields.get("LEN")
+}
