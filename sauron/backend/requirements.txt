@@ -1,7 +1,0 @@
-fastapi
-uvicorn
-sqlalchemy
-websockets
-python-multipart
-# If you are using Sigma.js/JSON logic
-jsonyx
