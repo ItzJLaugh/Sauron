@@ -40,6 +40,7 @@ def tail_logs(log_path, broadcaster):
                 save_event_to_db(event_details)
 
                 # 5. Broadcast to all connected WebSockets (thread-safe)
+                event_details["type"] = "event"
                 broadcaster.broadcast_sync(event_details)
 
 def save_event_to_db(data):
@@ -48,9 +49,9 @@ def save_event_to_db(data):
     try:
         new_event = Event(
             timestamp=data.get("timestamp"),
-            source_ip=data.get("src_ip"),
-            dest_ip=data.get("dst_ip"),
-            protocol=data.get("proto"),
+            source_ip=data.get("source_ip"),
+            dest_ip=data.get("dest_ip"),
+            protocol=data.get("protocol"),
             severity=data.get("severity", "low"),
             signature=data.get("signature", "Unknown Traffic"),
             action=data.get("action", "LOGGED")

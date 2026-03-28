@@ -93,3 +93,36 @@
 .event-src  { font-family: monospace; color: #64748b; width: 100px; flex-shrink: 0; }
 .event-desc { flex: 1; color: #cbd5e1; }
 .event-time { color: #475569; white-space: nowrap; }
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid #1e2330;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.event-count {
+  background: #3b82f61a;
+  color: #60a5fa;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+
+.navbar-title { font-size: 16px; font-weight: 600; }
+
+.topology-panel {
+  background: #1a1f2e;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.topology-container {
+  flex: 1;
+  min-height: 300px;
+}
