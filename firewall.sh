@@ -1,5 +1,8 @@
 #!/bin/bash
 #
+iptables -N ICMP_LIMIT
+iptables -N syn_flood
+
 #set default policies
 iptables -P INPUT -j DROP
 iptables -P OUTPUT -j DROP
@@ -33,13 +36,13 @@ iptables -A FORWARD -i lo -m state --state NEW,ESTABLISHED -j ACCEPT
 #set custom
 
 #syn_flood
-iptables -N syn_flood
+
 iptables -A syn_flood -p tcp -m tcp --tcp-flags FIN,SYN,RST,ACK SYN -m limit --limit 1/sec --limit-burst 3 -j ACCEPT
 iptables -A syn_flood -p tcp -m tcp -j LOG --log-prefix "IDS-SYN-FLOOD"
 iptables -A syn_flood -j DROP
 
 #icmp_limit
-iptables -N icmp_limit
+
 iptables -A INPUT -p icmp -j ICMP_LIMIT
 iptables -A ICMP_LIMIT -p icmp -m length --length 20:1492 -j ACCEPT
 iptables -A ICMP_LIMIT -m limit --limit 10/sec --limit-burst 3 -j LOG --log-prefix "ICMP_FRAG iptables:" --log-level 7
