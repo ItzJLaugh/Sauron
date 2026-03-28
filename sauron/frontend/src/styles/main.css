@@ -1,0 +1,95 @@
+/* src/styles/main.css */
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #0f1117;   /* dark bg — adjust to your preference */
+  color: #e2e8f0;
+  font-family: 'Inter', sans-serif;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-bottom: 1px solid #1e2330;
+}
+
+.stats-row {
+  display: flex;
+  gap: 12px;
+  padding: 12px 20px;
+}
+
+.stat-card {
+  flex: 1;
+  background: #1a1f2e;
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.stat-label { font-size: 12px; color: #64748b; margin: 0 0 4px; }
+.stat-value { font-size: 20px; font-weight: 500; margin: 0; }
+
+.main-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* side-by-side */
+  gap: 12px;
+  padding: 0 20px 20px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.badge-live {
+  font-size: 11px;
+  background: #ff4444;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 99px;
+}
+.ids-panel {
+  display: flex;
+  flex-direction: column;
+  background: #1a1f2e;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.event-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.event-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 14px;
+  font-size: 12px;
+  border-bottom: 1px solid #1e2330;
+}
+
+/* Left colored accent bar based on severity */
+.severity-high   { border-left: 3px solid #ff4444; }
+.severity-medium { border-left: 3px solid #f59e0b; }
+.severity-low    { border-left: 3px solid #3b82f6; }
+
+.severity-badge {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 7px;
+  border-radius: 99px;
+  text-transform: uppercase;
+  min-width: 48px;
+  text-align: center;
+}
+
+.event-row.severity-high   .severity-badge { background: #ff44441a; color: #ff6666; }
+.event-row.severity-medium .severity-badge { background: #f59e0b1a; color: #fbbf24; }
+.event-row.severity-low    .severity-badge { background: #3b82f61a; color: #60a5fa; }
+
+.event-src  { font-family: monospace; color: #64748b; width: 100px; flex-shrink: 0; }
+.event-desc { flex: 1; color: #cbd5e1; }
+.event-time { color: #475569; white-space: nowrap; }
