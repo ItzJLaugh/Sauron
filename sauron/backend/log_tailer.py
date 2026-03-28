@@ -49,11 +49,11 @@ def save_event_to_db(data):
     try:
         new_event = Event(
             timestamp=data.get("timestamp"),
-            source_ip=data.get("source_ip"),
-            dest_ip=data.get("dest_ip"),
+            source_ip=data.get("src_ip"),
+            dest_ip=data.get("dst_ip"),
             protocol=data.get("protocol"),
             severity=data.get("severity", "low"),
-            signature=data.get("signature", "Unknown Traffic"),
+            signature=data.get("description", "Unknown Traffic"),
             action=data.get("action", "LOGGED")
         )
         db.add(new_event)
