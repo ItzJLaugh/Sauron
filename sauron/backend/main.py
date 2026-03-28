@@ -1,7 +1,7 @@
 import asyncio
 import threading
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect # type: ignore
+from fastapi.middleware.cors import CORSMiddleware # type: ignore
 
 # Internal Imports
 from config import LOG_PATH, INTERFACE
@@ -77,6 +77,6 @@ async def root():
     }
 
 if __name__ == "__main__":
-    import uvicorn
+    import uvicorn # type: ignore
     # Run server on 0.0.0.0 to allow network access
     uvicorn.run(app, host="0.0.0.0", port=8000)
