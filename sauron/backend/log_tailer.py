@@ -39,10 +39,8 @@ def tail_logs(log_path, broadcaster):
                 # 4. Save to Database (SQLite)
                 save_event_to_db(event_details)
 
-                # 5. Broadcast to all connected WebSockets
-                # This makes the "TrafficDot" fly across the Topology map in real-time
-                import asyncio
-                asyncio.run(broadcaster.broadcast(event_details))
+                # 5. Broadcast to all connected WebSockets (thread-safe)
+                broadcaster.broadcast_sync(event_details)
 
 def save_event_to_db(data):
     """Helper to persist the event using SQLAlchemy."""

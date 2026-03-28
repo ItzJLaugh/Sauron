@@ -15,7 +15,7 @@ from broadcaster import manager
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
-    title="GhostProtocol IDS Visualizer",
+    title="Sauron IDS Visualizer",
     description="Real-time Network Topology & Intrusion Detection System",
     version="1.0.0"
 )

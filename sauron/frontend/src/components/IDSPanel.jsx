@@ -10,8 +10,9 @@ export default function IDSPanel() {
     // This runs once when the component mounts
     // Listen for new messages from the WebSocket
     function handleMessage(e) {
-      const newEvent = JSON.parse(e.data)   // backend sends JSON
-      setEvents(prev => [newEvent, ...prev].slice(0, 200)) // keep latest 200
+      const msg = JSON.parse(e.data)
+      if (msg.type !== 'event') return      // ignore stats messages
+      setEvents(prev => [msg, ...prev].slice(0, 200))
     }
 
     socket.addEventListener('message', handleMessage)
