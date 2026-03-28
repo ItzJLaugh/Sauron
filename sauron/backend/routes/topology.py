@@ -5,15 +5,15 @@ import uuid
 router = APIRouter()
 
 @router.get("/topology")
-async def get_sigma_topology():
+async def get_cytoscape_topology():
     """
-    Returns network topology formatted for Sigma.js / Graphology.
+    Returns network topology formatted for cytoscape.js / Graphology.
     Structure: { nodes: [...], edges: [...] }
     """
     try:
         devices = get_arp_table()
         
-        # 1. Initialize Sigma-compatible structure
+        # 1. Initialize cytoscape-compatible structure
         nodes = []
         edges = []
 
@@ -23,7 +23,7 @@ async def get_sigma_topology():
             "key": gateway_id,
             "attributes": {
                 "label": "Network Gateway",
-                "x": 0, "y": 0,           # Sigma needs coordinates or a layout 
+                "x": 0, "y": 0,           # cytoscape needs coordinates or a layout 
                 "size": 15,
                 "color": "#3b82f6",      # Blue
                 "type": "router",
