@@ -5,10 +5,10 @@ def classify_event(parsed):
     """
     return {
         "timestamp": parsed.get("timestamp"),
-        "source_ip": parsed.get("src_ip"),
-        "dest_ip": parsed.get("dst_ip"),
+        "src_ip": parsed.get("src_ip"),
+        "dst_ip": parsed.get("dst_ip"),
         "protocol": parsed.get("proto"),
         "severity": "low",
-        "signature": f"{parsed.get('proto', '')} {parsed.get('src_ip', '')} -> {parsed.get('dst_ip', '')}",
+        "description": f"{parsed.get('proto', '')} {parsed.get('src_ip', '')} -> {parsed.get('dst_ip', '')}",
         "action": "LOGGED",
     }
